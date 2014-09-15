@@ -36,6 +36,12 @@ HatenaBlogAutoReloader.prototype.addKeyupEventToEditArea = function () {
     var editarea = document.querySelector('textarea#body');
     var self = this;
     editarea.addEventListener("keyup", function () {
+        clearInterval(self.autoReloader);
+        var interval_time = 500;
+        self.autoReloader = setInterval(function () {
+            self.reload();
+        }, interval_time);
+
         self.changed = true;
     });
 };
@@ -59,7 +65,7 @@ HatenaBlogAutoReloader.prototype.reload = function () {
 };
 
 HatenaBlogAutoReloader.prototype.enableAutoReloader = function () {
-    var interval_time = 2000;
+    var interval_time = 500;
     var self = this;
     this.autoReloader = setInterval(function () {
         self.reload();
