@@ -61,13 +61,13 @@ HatenaBlogAutoReloader.prototype.reload = function () {
 HatenaBlogAutoReloader.prototype.enableAutoReloader = function () {
     var interval_time = 2000;
     var self = this;
-    this.autoReload = setInterval(function () {
+    this.autoReloader = setInterval(function () {
         self.reload();
     }, interval_time);
 };
 
 HatenaBlogAutoReloader.prototype.disableAutoReloader = function () {
-    clearInterval(this.autoReload);
+    clearInterval(this.autoReloader);
 };
 
 if (typeof hatenaBlogAutoReloader === 'undefined') {

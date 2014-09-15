@@ -23,8 +23,3 @@ chrome.pageAction.onClicked.addListener(function() {
         }
     });
 });
-
-//     //var click_event = $().createEvent("MouseEvents");
-//     //click_event.initEvent("click", false, true);
-//     //target_element.dispatchEvent(click_event);
-//     //target_element.trigger("click");
