@@ -2,7 +2,7 @@ this.enable = true;
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     chrome.tabs.executeScript(null, {
-        file: "main.js"
+        file: "preview-auto-reloader.js"
     }, function(result) {
         if (chrome.runtime.lastError) {
             console.log('ERROR: ' + chrome.runtime.lastError.message);
