@@ -1,10 +1,10 @@
 var HatenaBlogAutoReloader = function () {
-    this.changed = false;
+    this.inputting = false;
     this.textarea_updated = false;
     this.prev_editarea = '';
 
     this.addKeyupEventToEditArea();
-    this.isUpdateEditarea();
+    this.checkUpdateEditarea();
 };
 
 HatenaBlogAutoReloader.prototype.isEnableExternalPreview = function () {
@@ -17,7 +17,7 @@ HatenaBlogAutoReloader.prototype.isEnableExternalPreview = function () {
     return false;
 };
 
-HatenaBlogAutoReloader.prototype.isUpdateEditarea = function () {
+HatenaBlogAutoReloader.prototype.checkUpdateEditarea = function () {
     var editarea = document.querySelector('textarea#body');
 
     if (this.textarea_updated === true) { return; }
@@ -36,16 +36,16 @@ HatenaBlogAutoReloader.prototype.addKeyupEventToEditArea = function () {
     var editarea = document.querySelector('textarea#body');
     var self = this;
     editarea.addEventListener("keyup", function () {
-        self.changed = true;
+        self.inputting = true;
     });
 };
 
 HatenaBlogAutoReloader.prototype.reload = function () {
     var is_enable = this.isEnableExternalPreview();
-    this.isUpdateEditarea();
+    this.checkUpdateEditarea();
 
-    if (this.changed || !this.textarea_updated || !is_enable) {
-        this.changed = false;
+    if (this.inputting || !this.textarea_updated || !is_enable) {
+        this.inputting = false;
         return;
     }
 
@@ -54,7 +54,7 @@ HatenaBlogAutoReloader.prototype.reload = function () {
     click_event.initEvent("click", false, true);
     blogicon_repeat_element.dispatchEvent(click_event);
 
-    this.changed = false;
+    this.inputting = false;
     this.textarea_updated = false;
 };
 
