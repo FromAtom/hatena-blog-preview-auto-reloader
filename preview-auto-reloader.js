@@ -8,7 +8,7 @@ var HatenaBlogAutoReloader = function () {
 };
 
 HatenaBlogAutoReloader.prototype.isEnableExternalPreview = function () {
-    var blogicon_external_element = document.querySelector('#ui-id-2 i.blogicon-external');
+    var blogicon_external_element = document.querySelector('i.preview-in-new-window');
     var is_display = blogicon_external_element.style.display;
 
     if (is_display === 'none') {
@@ -49,7 +49,7 @@ HatenaBlogAutoReloader.prototype.reload = function () {
         return;
     }
 
-    var blogicon_repeat_element = document.querySelector('#ui-id-2 i.blogicon-repeat');
+    var blogicon_repeat_element = document.querySelector('i.preview-in-new-window');
     var click_event = document.createEvent("MouseEvents");
     click_event.initEvent("click", false, true);
     blogicon_repeat_element.dispatchEvent(click_event);
@@ -69,6 +69,7 @@ HatenaBlogAutoReloader.prototype.enableAutoReloader = function () {
 HatenaBlogAutoReloader.prototype.disableAutoReloader = function () {
     clearInterval(this.autoReloader);
 };
+
 
 if (typeof hatenaBlogAutoReloader === 'undefined') {
     var hatenaBlogAutoReloader = new HatenaBlogAutoReloader();
