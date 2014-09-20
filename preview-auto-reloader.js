@@ -58,18 +58,34 @@ HatenaBlogAutoReloader.prototype.reload = function () {
     this.textarea_updated = false;
 };
 
+HatenaBlogAutoReloader.prototype.isMitamamaEdit = function () {
+    var wysiwyg = document.getElementById('wysiwyg');
+
+    if (wysiwyg) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+
 HatenaBlogAutoReloader.prototype.enableAutoReloader = function () {
+    //見たまま編集はサポートしない
+    if (this.isMitamamaEdit()) { return; }
+
     var interval_time = 1000;
     var self = this;
+
     this.autoReloader = setInterval(function () {
         self.reload();
     }, interval_time);
 };
 
 HatenaBlogAutoReloader.prototype.disableAutoReloader = function () {
-    clearInterval(this.autoReloader);
+    if (this.autoReloader) {
+        clearInterval(this.autoReloader);
+    }
 };
-
 
 if (typeof hatenaBlogAutoReloader === 'undefined') {
     var hatenaBlogAutoReloader = new HatenaBlogAutoReloader();

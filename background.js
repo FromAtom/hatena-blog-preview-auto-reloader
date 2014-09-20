@@ -12,10 +12,6 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 
     if(true) {
         chrome.pageAction.show(tabId);
-        chrome.pageAction.setIcon({
-            tabId: tab.id,
-            path: 'on.png'
-        });
     }
 });
 
