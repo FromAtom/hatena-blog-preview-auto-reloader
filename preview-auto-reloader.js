@@ -73,7 +73,7 @@ HatenaBlogAutoReloader.prototype.enableAutoReloader = function () {
     //見たまま編集はサポートしない
     if (this.isMitamamaEdit()) { return; }
 
-    var interval_time = 1000;
+    var interval_time = 1500;
     var self = this;
 
     this.autoReloader = setInterval(function () {

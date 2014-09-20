@@ -6,8 +6,6 @@
     "permissions": [
         "tabs",
         "http://blog.hatena.ne.jp/",
-        "http://*.hatenablog.com/",
-        "http://*.hateblo.jp/"
     ],
     "background": {
         "scripts": ["background.js"]

@@ -1,16 +1,16 @@
 this.enable = true;
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-    chrome.tabs.executeScript(null, {
-        file: "preview-auto-reloader.js"
-    }, function(result) {
-        if (chrome.runtime.lastError) {
-            console.log('ERROR: ' + chrome.runtime.lastError.message);
-            return;
-        }
-    });
+    if( tab.url.indexOf('blog.hatena.ne.jp') != -1 ) {
+        chrome.tabs.executeScript(null, {
+            file: "preview-auto-reloader.js"
+        }, function(result) {
+            if (chrome.runtime.lastError) {
+                console.log('ERROR: ' + chrome.runtime.lastError.message);
+                return;
+            }
+        });
 
-    if(true) {
         chrome.pageAction.show(tabId);
     }
 });
