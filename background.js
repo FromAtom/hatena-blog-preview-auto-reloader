@@ -21,12 +21,12 @@ chrome.pageAction.onClicked.addListener(function(tab) {
 
     if (this.enable) {
         code = 'hatenaBlogAutoReloader.disableAutoReloader();';
-        path = 'off.png';
+        path = 'icons/off16.png';
         this.enable = false;
     }
     else {
         code = 'hatenaBlogAutoReloader.enableAutoReloader();';
-        path = 'on.png';
+        path = 'icons/on16.png';
         this.enable = true;
     }
 
